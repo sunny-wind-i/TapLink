@@ -45,14 +45,16 @@ $(function () {
             if (floor_text.trim() == floor_num + "楼") {
                 //1. 获取链接
                 //读取第二个类名
-                // v1.0 TapTap类名顺序已更新，要换为第一个
-                // console.log(post_edit.classList);
+                // v1.0 TapTap类名顺序已更新，且不固定
+                // console.log(post_edit.classList.value);
+                // console.log(typeof (post_edit.classList.value));
                 // v1.0已无效写法：
                 // var post_id_str = post_edit.classList.item(1);
-                var post_id_str = post_edit.classList.item(0);
-                //console.log(post_id_str);
-                var regex = /\d+$/;   // 匹配末尾的数字
-                var post_id = post_id_str.match(regex)
+                // 获取所有变量
+                var post_class_str = post_edit.classList.value
+                // var regex = /\d+$/;   // 匹配末尾的数字
+                var regex = /post__edit-list-(\d+)/;   // 匹配末尾的数字
+                var post_id = post_class_str.match(regex)[1]
                 link_str = "taptap.cn/post/" + post_id;
                 //2. 获取文本
                 content_room = post_edit.querySelector(".moment-post__content .moment-post__rich-content");

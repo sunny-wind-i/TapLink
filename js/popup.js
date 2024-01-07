@@ -8,6 +8,7 @@ $(function () {
         var link_str = "";
         var text_str = "";
 
+        //v1.0结构
         //moment-post
         //-moment-post__body    其他
         //--js-moment-post__edit    类名          js-moment-post__edit-list-224093234 postid
@@ -28,7 +29,12 @@ $(function () {
         //----第二个class
         //-----moment-post__floor caption-m12-w14 gray-04 楼层
 
-        var floorWrap = document.querySelector(".moment-comment-list__wrap-www");
+
+        //v1.1结构
+        //最外层评论区的class改成了moment-comment-list__tap-list，其他没改
+
+        // var floorWrap = document.querySelector(".moment-comment-list__wrap-www");
+        var floorWrap = document.querySelector(".moment-comment-list__tap-list");
         var postItems = floorWrap.querySelectorAll(".moment-post-item");
 
         postItems.forEach(function (thisFloor, i) {
@@ -39,7 +45,11 @@ $(function () {
             if (floor_text.trim() == floor_num + "楼") {
                 //1. 获取链接
                 //读取第二个类名
-                var post_id_str = post_edit.classList.item(1);
+                // v1.0 TapTap类名顺序已更新，要换为第一个
+                // console.log(post_edit.classList);
+                // v1.0已无效写法：
+                // var post_id_str = post_edit.classList.item(1);
+                var post_id_str = post_edit.classList.item(0);
                 //console.log(post_id_str);
                 var regex = /\d+$/;   // 匹配末尾的数字
                 var post_id = post_id_str.match(regex)

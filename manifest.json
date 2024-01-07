@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "TapLink",
-    "version": "1.0",
+    "version": "1.1",
     "description": "TapTap链接复制辅助插件，此插件仅供代码学习使用，请勿用于任何商业用途",
     "icons": {
         "128": "img/TapLink.png",

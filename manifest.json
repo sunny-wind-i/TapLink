@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "TapLink",
+    "version": "1.0",
+    "description": "TapTap链接复制辅助插件，此插件仅供代码学习使用，请勿用于任何商业用途",
+    "icons": {
+        "128": "img/TapLink.png",
+        "48": "img/TapLink.png",
+        "16": "img/TapLink.png"
+    },
+    "action": {
+        "default_icon": "img/TapLink.png",
+        "default_title": "TapTap链接复制辅助插件",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "js/pageAction.js"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.taptap.cn/*"
+            ],
+            "js": [
+                "js/jquery-3.3.1.min.js",
+                "js/content.js"
+            ]
+        }
+    ]
+}

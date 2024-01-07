@@ -1,0 +1,11 @@
+//由content.js实现发送消息的逻辑后，通过pageAction实现接受消息的逻辑
+chrome.runtime.onMessage.addListener(function(request,sender,response){
+    //通过匹配接受到消息的todo是否为showPageAction，从而确定当前接受的消息是否是目标消息，
+    //如果是，则使插件可以在当前页面使用
+    if(request.todo=="showPageAction"){
+        chrome.tabs.query({active:true,currentWindow:true},function(tabs){
+            //chrome.pageAction.show(tabs[0].id);
+            //console.log("taptap!");
+        });
+    }
+});
